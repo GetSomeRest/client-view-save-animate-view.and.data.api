@@ -15,7 +15,7 @@ Buttons:
  
 Usage:
 It requires the user to pass in a valid access token and urn of the file they want to use as a URL parameter:
-- ViewSaveAnimate.html?accessToken=<access token>&urn=<urn of the file to view>
+- ViewSaveAnimate.html?accessToken=&lt;access token&gt;&urn=&lt;urn of the file to view&gt;
 - e.g.: ViewSaveAnimate.html?accessToken=ljvWwXkzF3zxCVfLUZhP1Q8Qk66S&urn=dXJuOmFkc2sub2JqZWN0czpvcy5vYmplY3Q6bXl0ZXN0YnVja2V0L2NoYXNzaXMuZHdm
 
 You can use e.g. the https://github.com/Developer-Autodesk/Workflow-view.and.data.api-WPF sample to log in, upload a file, start translation and then invoke this html page with the required parameters. 
