@@ -15,12 +15,11 @@ Buttons:
  
 Usage:
 It requires the user to pass in a valid access token and urn of the file they want to use as a URL parameter:
-ViewSaveAnimate.html?accessToken=<access token>&urn=<urn of the file to view>
-e.g.:
-ViewSaveAnimate.html?accessToken=ljvWwXkzF3zxCVfLUZhP1Q8Qk66S&urn=dXJuOmFkc2sub2JqZWN0czpvcy5vYmplY3Q6bXl0ZXN0YnVja2V0L2NoYXNzaXMuZHdm
+- ViewSaveAnimate.html?accessToken=<access token>&urn=<urn of the file to view>
+- e.g.: ViewSaveAnimate.html?accessToken=ljvWwXkzF3zxCVfLUZhP1Q8Qk66S&urn=dXJuOmFkc2sub2JqZWN0czpvcy5vYmplY3Q6bXl0ZXN0YnVja2V0L2NoYXNzaXMuZHdm
 
 You can use e.g. the https://github.com/Developer-Autodesk/Workflow-view.and.data.api-WPF sample to log in, upload a file, start translation and then invoke this html page with the required parameters. 
 
 The html page has two parameters you can adjust:
-- MyClass.kInBetweenSteps: this sets how many additional extra steps are added in between the stored views when animating, to make it smoother
+- MyClass.kInBetweenSteps: this sets how many extra steps are added in between the stored views when animating, to make it smoother
 - MyClass.kMilliSecondsBetweenSteps: the time in milliseconds that we'll wait before switching from one saved view to the next when animating
