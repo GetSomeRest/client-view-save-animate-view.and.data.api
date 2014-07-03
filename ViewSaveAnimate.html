@@ -143,7 +143,7 @@
           }
         },
         function (errorMsg, httpErrorCode) { // onErrorCallback
-          var container = document.getElementById('viewer2d');
+          var container = document.getElementById('myViewer');
           if (container) {
             var errorCode = ErrorHander.getErrorCode(httpErrorCode);
             ErrorHandler.reportError(container, errorCode);
