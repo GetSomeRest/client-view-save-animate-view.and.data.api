@@ -9,9 +9,9 @@ It enables you to
 - animate the saved views
 
 Buttons:
-"S" - saves the current view. You can also use Alt+S to do the same
-"A" - animates the stored views. It will start on the first view in the toolbar and keep switching to the next stored view until the last one is reached.
-"1".."n" - the stored views
+- "S": saves the current view. You can also use Alt+S to do the same
+- "A": animates the stored views. It will start on the first view in the toolbar and keep switching to the next stored view until the last one is reached.
+- "1".."n": the stored views
  
 Usage:
 It requires the user to pass in a valid access token and urn of the file they want to use as a URL parameter:
@@ -22,4 +22,5 @@ ViewSaveAnimate.html?accessToken=ljvWwXkzF3zxCVfLUZhP1Q8Qk66S&urn=dXJuOmFkc2sub2
 You can use e.g. the https://github.com/Developer-Autodesk/Workflow-view.and.data.api-WPF sample to log in, upload a file, start translation and then invoke this html page with the required parameters. 
 
 The html page has two parameters you can adjust:
-- MyClass.kInBetweenSteps: this sets how many additional extra steps are added in between the stored views when animating, to make it smoother- MyClass.kMilliSecondsBetweenSteps: the time in milliseconds that we'll wait before switching from one saved view to the next when animating
+- MyClass.kInBetweenSteps: this sets how many additional extra steps are added in between the stored views when animating, to make it smoother
+- MyClass.kMilliSecondsBetweenSteps: the time in milliseconds that we'll wait before switching from one saved view to the next when animating
