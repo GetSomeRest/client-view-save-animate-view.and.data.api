@@ -49,7 +49,7 @@ It requires the user to pass in a valid access token and urn of the file they wa
 - ViewSaveAnimate.html?accessToken=&lt;access token&gt;&urn=&lt;urn of the file to view&gt;
 - e.g.: ViewSaveAnimate.html?accessToken=ljvWwXkzF3zxCVfLUZhP1Q8Qk66S&urn=dXJuOmFkc2sub2JqZWN0czpvcy5vYmplY3Q6bXl0ZXN0YnVja2V0L2NoYXNzaXMuZHdm
 
-You can use e.g. the https://github.com/Developer-Autodesk/workflow-wpf-view.and.data.apisample to log in, upload a file, start translation and then invoke this html page with the required parameters. 
+You can use e.g. the https://github.com/Developer-Autodesk/workflow-wpf-view.and.data.api sample to log in, upload a file, start translation and then invoke this html page with the required parameters. 
 
 The html page has two parameters you can adjust:
 - MyClass.kInBetweenSteps: this sets how many extra steps are added in between the stored views when animating, to make it smoother
