@@ -3,7 +3,7 @@
 
 ##Description
 
-This sample is part of the [Developer-Autodesk/Autodesk-View-and-Data-API-Samples](https://github.com/Developer-Autodesk/autodesk-view-and-data-api-samples) repository.*
+*This sample is part of the [Developer-Autodesk/Autodesk-View-and-Data-API-Samples](https://github.com/Developer-Autodesk/autodesk-view-and-data-api-samples) repository.*
 
 This sample shows how you can save/restore views in the viewer and the play them in a loop in order to animate going from one saved view to the next. The webpage is using a jQuery UI sortable component to store the views the user saves.
 It enables you to 
