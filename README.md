@@ -5,12 +5,12 @@
 
 *This sample is part of the [Developer-Autodesk/Autodesk-View-and-Data-API-Samples](https://github.com/Developer-Autodesk/autodesk-view-and-data-api-samples) repository.*
 
-This sample shows how you can save/restore views in the viewer and the play them in a loop in order to animate going from one saved view to the next. The webpage is using a jQuery UI sortable component to store the views the user saves.
+This sample shows how you can save/restore views in the viewer and then replay them in a loop in specified order. The webpage is using a jQuery UI sortable component to store the views which are saved by user.
 It enables you to 
-* drag&drop sort the saved view buttons
-* drag buttons off the toolbar to remove them
-* switch to any saved view
-* animate the saved views
+* Drag&drop to sort the saved view buttons
+* Drag buttons off the toolbar to remove them
+* Switch to any saved view
+* Animate the saved views
 
 Buttons:
 * "S": saves the current view. You can also use Alt+S to do the same
@@ -35,7 +35,7 @@ The html page has two parameters you can adjust:
 
 ## License
 
-client-embedded-view.and.data.api is licensed under the terms of the [MIT License](http://opensource.org/licenses/MIT). Please see the [LICENSE](LICENSE) file for full details.
+This sample is licensed under the terms of the [MIT License](http://opensource.org/licenses/MIT). Please see the [LICENSE](LICENSE) file for full details.
 
 ##Written by 
 
