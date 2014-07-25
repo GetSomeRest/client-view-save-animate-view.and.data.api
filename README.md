@@ -1,5 +1,5 @@
 
-#client sample - ViewSaveAnimate
+#Client sample - ViewSaveAnimate
 
 ##Description
 
