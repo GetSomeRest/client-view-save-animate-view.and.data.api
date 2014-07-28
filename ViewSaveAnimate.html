@@ -116,7 +116,7 @@
       MyClass.viewer = new Autodesk.Viewing.Private.GuiViewer3D(viewerElement, {});
       Autodesk.Viewing.Initializer(options, function () {
         MyClass.viewer.initialize();
-        MyClass.loadDocument(MyClass.viewer, Autodesk.Viewing.Private.getAuthObject(), options.document);
+        MyClass.loadDocument(MyClass.viewer, null, options.document);
       });
     }; // MyClass.initializeOneView
 
@@ -411,10 +411,10 @@
       MyClass.initializeOneView();
 
       $(document).keypress(function (e) {
-        console.info(e.charCode);
-        // If Alt+S was pressed
+        console.info("e.which = " + e.which);
+        // If 's' was pressed
         //
-        if (e.altKey && e.charCode === 223) {
+        if (e.which === 115) {
           MyClass.actionStoreView();
         }
       });
