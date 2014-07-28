@@ -13,7 +13,7 @@ It enables you to
 * Animate the saved views
 
 Buttons:
-* "S": saves the current view. You can also use Alt+S to do the same
+* "S": saves the current view. You can also press "S" on the keyboard to do the same
 * "A": animates the stored views. It will start on the first view in the toolbar and keep switching to the next stored view until the last one is reached.
 * "1".."n": the stored views
 
@@ -32,9 +32,6 @@ You can use e.g. the https://github.com/Developer-Autodesk/workflow-wpf-view.and
 The html page has two parameters you can adjust:
 * MyClass.kInBetweenSteps: this sets how many extra steps are added in between the stored views when animating, to make it smoother
 * MyClass.kMilliSecondsBetweenSteps: the time in milliseconds that we'll wait before switching from one saved view to the next when animating
-
-Note: in case of Firefox you'll need to disable the Alt menu toggle for Alt+S to work as Save View in this sample:
-http://superuser.com/questions/770301/pentadactyl-how-to-disable-menu-bar-toggle-by-alt 
 
 ## License
 
