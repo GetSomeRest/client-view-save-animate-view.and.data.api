@@ -33,6 +33,9 @@ The html page has two parameters you can adjust:
 * MyClass.kInBetweenSteps: this sets how many extra steps are added in between the stored views when animating, to make it smoother
 * MyClass.kMilliSecondsBetweenSteps: the time in milliseconds that we'll wait before switching from one saved view to the next when animating
 
+Note: in case of Firefox you'll need to disable the Alt menu toggle for Alt+S to work as Save View in this sample:
+http://superuser.com/questions/770301/pentadactyl-how-to-disable-menu-bar-toggle-by-alt 
+
 ## License
 
 This sample is licensed under the terms of the [MIT License](http://opensource.org/licenses/MIT). Please see the [LICENSE](LICENSE) file for full details.
