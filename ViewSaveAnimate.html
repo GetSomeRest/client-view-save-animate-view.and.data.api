@@ -77,7 +77,7 @@
       </tr>
     </table>
   </div>
-  <script src="https://developer.api.autodesk.com/viewingservice/v1/viewers/viewer3D.min.cp.js"></script>
+  <script src="https://developer.api.autodesk.com/viewingservice/v1/viewers/viewer3D.min.js"></script>
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
   <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
   <script>
@@ -191,6 +191,95 @@
 
       var vwr = MyClass.viewer;
       var thisView = [];
+      
+      thisView[0] = vwr.getFOV();
+      thisView[1] = vwr.navigation.getPosition();
+      thisView[2] = vwr.navigation.getTarget();
+      thisView[3] = vwr.navigation.getCameraUpVector();
+      MyClass.storedViews[id] = thisView;
+
+      // Add a new view button to the list
+      // The sortable("refresh") did not work well enough
+      // but recreating the whole thing seems to be good
+      var $newItem = $("<li />").addClass("myDroppable");
+      $("<button />").attr("id", id).html(id)
+                        .appendTo($newItem).button();
+      $newItem.appendTo("#myViewsList");
+      MyClass.refreshMyViewsList();
+    }; // MyClass.actionStoreView
+
+    // Retrieves a saved view and generates in-between steps as well
+    // if necessary. If it is called directly by clicking on a saved view
+    // then MyClass.inBetweenSteps = 0, if the animation calls it
+    // then it will set it to some other value
+    MyClass.retrieveView = function () {
+
+      if (!MyClass.curView)
+        return;
+
+      // Get id from button under the list item
+      //
+      var id = MyClass.curView.firstChild.attributes["id"].value;
+      console.info("Current id = " + id);
+      console.info("inBetweenSteps = " + MyClass.inBetweenSteps.toString());
+      console.info("currentInBetweenStep = " + MyClass.currentInBetweenStep.toString());
+
+      var vwr = MyClass.viewer;
+      // Making a copy so that we can modify it below without overwriting 
+      // the saved view properties
+      var view = MyClass.storedViews[id];
+      var newView = [];
+      newView[0] = view[0];
+      newView[1] = view[1].clone();
+      newView[2] = view[2].clone();
+      newView[3] = view[3].clone();
+
+      console.info("storedViews[id] = " + newView[0].toString() + "; " +
+                    newView[1].x.toString() + "/" + newView[1].y.toString() + "/" + newView[1].z.toString() + "; " +
+                    newView[2].x.toString() + "/" + newView[2].y.toString() + "/" + newView[2].z.toString() + "; " +
+                    newView[3].x.toString() + "/" + newView[3].y.toString() + "/" + newView[3].z.toString());
+
+      // If the saved view list item has a sibling, i.e. another list item next to it
+      // that we should move to then we'll calculate inbetween steps. If this is the last view
+      // during animation then (i.e. this saved view list item has no sibling)
+      // then we can skip this 
+      if (MyClass.curView.nextSibling && MyClass.inBetweenSteps > 0) {
+        var nextId = MyClass.curView.nextSibling.firstChild.attributes["id"].value;
+        var newViewNext = MyClass.storedViews[nextId];
+
+        // Get intermediate steps in between two stored views
+        var devider = MyClass.currentInBetweenStep / MyClass.inBetweenSteps;
+        newView[0] = newView[0] + (newViewNext[0] - newView[0]) * devider;
+        newView[1].x = newView[1].x + (newViewNext[1].x - newView[1].x) * devider;
+        newView[1].y = newView[1].y + (newViewNext[1].y - newView[1].y) * devider;
+        newView[1].z = newView[1].z + (newViewNext[1].z - newView[1].z) * devider;
+        newView[2].x = newView[2].x + (newViewNext[2].x - newView[2].x) * devider;
+        newView[2].y = newView[2].y + (newViewNext[2].y - newView[2].y) * devider;
+        newView[2].z = newView[2].z + (newViewNext[2].z - newView[2].z) * devider;
+        newView[3].x = newView[3].x + (newViewNext[3].x - newView[3].x) * devider;
+        newView[3].y = newView[3].y + (newViewNext[3].y - newView[3].y) * devider;
+        newView[3].z = newView[3].z + (newViewNext[3].z - newView[3].z) * devider;
+      } else {
+        // No more steps
+        MyClass.inBetweenSteps = 0;
+      }
+
+      console.info("modified storedViews[id] = " + newView[0].toString() + "; " + newView[1].toString() + "; " +
+                    newView[2].x.toString() + "/" + newView[2].y.toString() + "/" + newView[2].z.toString() + "; " +
+                    newView[3].x.toString() + "/" + newView[3].y.toString() + "/" + newView[3].z.toString());
+      vwr.navigation.setRequestTransitionWithUp(
+        true, newView[1], newView[2], newView[0], newView[3]
+      );
+    }; // MyClass.retrieveView
+
+    // Storing the current view in the array of stored views and adding a list item
+    // with a button in it to represent it on the toolbar
+    MyClass.actionStoreView_old = function () {
+
+      var id = MyClass.getNewViewId();
+
+      var vwr = MyClass.viewer;
+      var thisView = [];
       var curCam = vwr.getCamera();
       thisView[0] = curCam.aspect;
       thisView[1] = curCam.fov;
@@ -212,7 +301,7 @@
     // if necessary. If it is called directly by clicking on a saved view
     // then MyClass.inBetweenSteps = 0, if the animation calls it
     // then it will set it to some other value
-    MyClass.retrieveView = function () {
+    MyClass.retrieveView_old = function () {
 
       if (!MyClass.curView)
         return;
