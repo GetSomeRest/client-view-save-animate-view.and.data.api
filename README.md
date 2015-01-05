@@ -1,6 +1,10 @@
 
 #Client sample - ViewSaveAnimate
 
+##Update
+
+This sample is retired, it is not maintained any more. Please refer to the [extension samples](https://github.com/Developer-Autodesk/library-javascript-viewer-extensions)
+
 ##Description
 
 *This sample is part of the [Developer-Autodesk/Autodesk-View-and-Data-API-Samples](https://github.com/Developer-Autodesk/autodesk-view-and-data-api-samples) repository.*
